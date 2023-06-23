@@ -1,15 +1,16 @@
 import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
 import token from '../accessToken';
+import './Mapbox.css';
 
 mapboxgl.accessToken = token;
 
 export default function Mapbox(){
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
-    const [zoom, setZoom] = useState(9);
+    const [lng, setLng] = useState(-121.89);
+    const [lat, setLat] = useState(37.33);
+    const [zoom, setZoom] = useState(11);
 
 
     useEffect(() => {
@@ -24,8 +25,6 @@ export default function Mapbox(){
 
 
     return (
-        <div>
             <div ref={mapContainer} className="map-container" />
-        </div>
         );
 };
