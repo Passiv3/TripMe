@@ -1,6 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
 import token from '../accessToken';
+import { MapSearchBox } from './MapSearchBox';
 import './Mapbox.css';
 
 mapboxgl.accessToken = token;
@@ -25,6 +26,9 @@ export default function Mapbox(){
 
 
     return (
-            <div ref={mapContainer} className="map-container" />
-        );
+            <div>
+                <MapSearchBox map={map}></MapSearchBox>
+                <div ref={mapContainer} className="map-container" />
+            </div>
+    );
 };
