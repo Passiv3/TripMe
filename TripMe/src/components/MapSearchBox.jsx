@@ -7,9 +7,19 @@ const accessToken = token;
 export function MapSearchBox(props) {
     const [value, setValue] = React.useState('');
 
+    const handleChange = (e) =>{
+      props.setValWrapper();
+    };
+
     return (
       <form>
-        <SearchBox accessToken={token}/>
+        <SearchBox
+          accessToken={token} 
+          value = {props.value}
+          map={props.map}
+          onChange = {handleChange}
+          
+          />
       </form>
     );
   }

@@ -12,6 +12,7 @@ export default function Mapbox(){
     const [lng, setLng] = useState(-121.89);
     const [lat, setLat] = useState(37.33);
     const [zoom, setZoom] = useState(11);
+    const [value, setValue] = useState('');
 
 
     useEffect(() => {
@@ -24,10 +25,13 @@ export default function Mapbox(){
             });
         });
 
-
+    const changeMapValue = (newValue)=>{
+        setValue(newValue);
+    }
+    
     return (
             <div>
-                <MapSearchBox map={map}></MapSearchBox>
+                <MapSearchBox map={map.current} setValWrapper = {changeMapValue}></MapSearchBox>
                 <div ref={mapContainer} className="map-container" />
             </div>
     );
