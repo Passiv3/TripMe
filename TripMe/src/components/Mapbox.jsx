@@ -4,6 +4,7 @@ import token from '../accessToken';
 import { MapSearchBox } from './MapSearchBox';
 import './Mapbox.css';
 
+
 mapboxgl.accessToken = token;
 
 export default function Mapbox(){
@@ -25,6 +26,7 @@ export default function Mapbox(){
             });
         });
 
+    // Wrapper function to pass as property for search value state
     const changeMapValue = (newValue)=>{
         setValue(newValue);
     }

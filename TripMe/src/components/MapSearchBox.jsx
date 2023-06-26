@@ -5,8 +5,9 @@ import token from '../accessToken';
 const accessToken = token;
 
 export function MapSearchBox(props) {
-    const handleChange = (e) =>{
-      props.setValWrapper();
+  // Wrapper function to update value of state in parent
+    const handleChange = (newVal) =>{
+      props.setValWrapper(newVal);
     };
 
     return (
