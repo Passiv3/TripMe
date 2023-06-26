@@ -5,8 +5,6 @@ import token from '../accessToken';
 const accessToken = token;
 
 export function MapSearchBox(props) {
-    const [value, setValue] = React.useState('');
-
     const handleChange = (e) =>{
       props.setValWrapper();
     };

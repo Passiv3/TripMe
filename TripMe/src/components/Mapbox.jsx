@@ -31,7 +31,7 @@ export default function Mapbox(){
     
     return (
             <div>
-                <MapSearchBox map={map.current} setValWrapper = {changeMapValue}></MapSearchBox>
+                <MapSearchBox map={map.current} value={value} setValWrapper = {changeMapValue}></MapSearchBox>
                 <div ref={mapContainer} className="map-container" />
             </div>
     );
