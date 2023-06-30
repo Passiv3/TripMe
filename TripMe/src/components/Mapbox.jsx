@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
 import token from '../accessToken';
 import { MapSearchBox } from './MapSearchBox';
+//import geoJson from '../dataset/testData.json';
 import './Mapbox.css';
 
 
@@ -24,12 +25,17 @@ export default function Mapbox(){
                 center: [lng, lat],
                 zoom: zoom
             });
+        
+        //geoJson.features.map((feature)=>
+            new mapboxgl.Marker().setLngLat([-122.160 ,37.4454]).addTo(map.current)
+        //);
         });
 
     // Wrapper function to pass as property for search value state
     const changeMapValue = (newValue)=>{
-        setValue(newValue);
+        setValue(newValue);     
     }
+
     
     return (
             <div>
