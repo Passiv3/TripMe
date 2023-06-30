@@ -1,7 +1,10 @@
 import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
 import token from '../accessToken';
+import { MapSearchBox } from './MapSearchBox';
+//import geoJson from '../dataset/testData.json';
 import './Mapbox.css';
+
 
 mapboxgl.accessToken = token;
 
@@ -11,6 +14,7 @@ export default function Mapbox(){
     const [lng, setLng] = useState(-121.89);
     const [lat, setLat] = useState(37.33);
     const [zoom, setZoom] = useState(11);
+    const [value, setValue] = useState('');
 
 
     useEffect(() => {
@@ -21,10 +25,22 @@ export default function Mapbox(){
                 center: [lng, lat],
                 zoom: zoom
             });
+        
+        //geoJson.features.map((feature)=>
+            new mapboxgl.Marker().setLngLat([-122.160 ,37.4454]).addTo(map.current)
+        //);
         });
 
+    // Wrapper function to pass as property for search value state
+    const changeMapValue = (newValue)=>{
+        setValue(newValue);     
+    }
 
+    
     return (
-            <div ref={mapContainer} className="map-container" />
-        );
+            <div>
+                <MapSearchBox map={map.current} value={value} setValWrapper = {changeMapValue}></MapSearchBox>
+                <div ref={mapContainer} className="map-container" />
+            </div>
+    );
 };
